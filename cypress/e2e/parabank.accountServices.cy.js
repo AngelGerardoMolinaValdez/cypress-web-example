@@ -1,3 +1,4 @@
+import Papa from 'papaparse';
 import { LoginPage } from './pages/LoginPage';
 import { LogoutAction } from './pages/Logout'
 import { OpenNewAccount } from './pages/services/OpenNewAccount'
@@ -8,9 +9,20 @@ describe('Servicios disponibles para una cuenta', () => {
   const logoutAction = new LogoutAction()
 
   beforeEach(() => {
-    loginPage.open('https://parabank.parasoft.com/parabank/index.htm');
-    loginPage.inputCredentials("john", "demo");
-    loginPage.submit();
+    cy.fixture('data.csv').then((csvString) => {
+      Papa.parse(csvString, {
+        header: true,
+        complete: (results) => {
+          cy.wrap(results.data).as('testData');
+        }
+      });
+    });
+  
+    cy.fixture('login.json').then((data) => {
+      loginPage.open(data.url);
+      loginPage.inputCredentials(data.username, data.password);
+      loginPage.submit();
+    });    
   });
 
   afterEach(() => {
@@ -18,21 +30,31 @@ describe('Servicios disponibles para una cuenta', () => {
   })
 
   it('Abrir una cuenta nueva', () => {
-    const newAccount = new OpenNewAccount();
-    newAccount.clickInToOption();
-    newAccount.selectTypeAccount("SAVINGS");
-    newAccount.selectAccountReference("12345");
-    newAccount.create();
-    newAccount.getAccountId();
+    cy.get('@testData').then((rows) => {
+      const rowData = rows[0];
+      const newAccount = new OpenNewAccount();
+      newAccount.clickInToOption();
+      newAccount.selectTypeAccount(rowData.typeAccount);
+      newAccount.selectAccountReference(rowData.accountReference);
+      newAccount.create();
+      newAccount.getAccountId();
+    });
   });
 
   it('Transferir fondos', () => {
-    const transferFunds = new TransferFunds("12345", "12456", "1");
-    transferFunds.clickInToOption();
-    transferFunds.inputAmount();
-    transferFunds.selectSenderAccount();
-    transferFunds.selectReceiverAccount();
-    transferFunds.transfer();
-    transferFunds.validateTransfer();
+    cy.get('@testData').then((rows) => {
+      const rowData = rows[0];
+      const transferFunds = new TransferFunds(
+        rowData.accountReference, 
+        rowData.accountSender,
+        rowData.amount
+      );
+      transferFunds.clickInToOption();
+      transferFunds.inputAmount();
+      transferFunds.selectSenderAccount();
+      transferFunds.selectReceiverAccount();
+      transferFunds.transfer();
+      transferFunds.validateTransfer();
+    });
   });
 })
