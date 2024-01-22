@@ -92,5 +92,5 @@ La primera vez que ejecutes este comando, Cypress creará una estructura de carp
 
 Para más detalles, tutoriales y documentación completa, visita el sitio oficial de Cypress:
 
-- [Cypress.io](https://www.cypress.io/)
-- [Documentación Oficial de Cypress](https://docs.cypress.io/guides/overview/why-cypress.html)
+- [Pagina oficial de Cypress](https://www.cypress.io/)
+- [App de prueba para casos de uso en Cypress](https://www.cypress.io/)
