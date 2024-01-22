@@ -4,13 +4,13 @@ import { LogoutAction } from './pages/Logout'
 import { OpenNewAccount } from './pages/services/OpenNewAccount'
 import { TransferFunds } from './pages/services/TransferFunds'
 
-describe('Servicios disponibles para una cuenta', () => {
+describe('Servicios de transferencia', () => {
   const loginPage = new LoginPage()
   const logoutAction = new LogoutAction()
   let testData = []
 
   before(() => {
-    cy.fixture('data.csv').then((csvString) => {
+    cy.fixture('transfer.csv').then((csvString) => {
       Papa.parse(csvString, {
         header: true,
         complete: (results) => {
@@ -32,23 +32,11 @@ describe('Servicios disponibles para una cuenta', () => {
     logoutAction.close()
   })
 
-  it('Abrir una cuenta nueva', () => {
-    testData.forEach((rowData) => {
-      const newAccount = new OpenNewAccount();
-      newAccount.clickInToOption();
-      newAccount.selectTypeAccount(rowData.typeAccount);
-      newAccount.selectAccountReference(rowData.accountReference);
-      newAccount.create();
-      newAccount.getAccountId();
-    })
-  });
-
   it('Transferir fondos', () => {
-    cy.get('@testData').then((rows) => {
-      const rowData = rows[0];
+    testData.forEach((rowData) => {
       const transferFunds = new TransferFunds(
-        rowData.accountReference, 
-        rowData.accountSender,
+        rowData.fromAccount, 
+        rowData.toAccount,
         rowData.amount
       );
       transferFunds.clickInToOption();
