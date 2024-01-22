@@ -9,7 +9,7 @@ describe('Servicios disponibles para una cuenta', () => {
   let testData = []
 
   before(() => {
-    cy.fixture('data.csv').then((csvString) => {
+    cy.fixture('account.csv').then((csvString) => {
       Papa.parse(csvString, {
         header: true,
         complete: (results) => {
