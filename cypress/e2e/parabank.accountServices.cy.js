@@ -7,17 +7,20 @@ import { TransferFunds } from './pages/services/TransferFunds'
 describe('Servicios disponibles para una cuenta', () => {
   const loginPage = new LoginPage()
   const logoutAction = new LogoutAction()
+  let testData = []
 
-  beforeEach(() => {
+  before(() => {
     cy.fixture('data.csv').then((csvString) => {
       Papa.parse(csvString, {
         header: true,
         complete: (results) => {
-          cy.wrap(results.data).as('testData');
+          testData = results.data;
         }
       });
     });
-  
+  });
+
+  beforeEach(() => {
     cy.fixture('login.json').then((data) => {
       loginPage.open(data.url);
       loginPage.inputCredentials(data.username, data.password);
@@ -30,15 +33,14 @@ describe('Servicios disponibles para una cuenta', () => {
   })
 
   it('Abrir una cuenta nueva', () => {
-    cy.get('@testData').then((rows) => {
-      const rowData = rows[0];
+    testData.forEach((rowData) => {
       const newAccount = new OpenNewAccount();
       newAccount.clickInToOption();
       newAccount.selectTypeAccount(rowData.typeAccount);
       newAccount.selectAccountReference(rowData.accountReference);
       newAccount.create();
       newAccount.getAccountId();
-    });
+    })
   });
 
   it('Transferir fondos', () => {
