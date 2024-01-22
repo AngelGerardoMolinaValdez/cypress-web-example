@@ -29,9 +29,19 @@ Cypress hizo su debut comercial en octubre de 2018, superando las proyecciones m
 
 Para leer la historia completa de Cypress, visita el sitio web oficial en este enlace: [The Story of Cypress.io](https://www.cypress.io/about-us/our-story).
 
+## Requerimientos 🛠️
+
+- [Node JS - 20.11](https://nodejs.org/en/download)
+
 ## Instalación 🛠️
 
-Para instalar Cypress, necesitas tener Node.js instalado en tu sistema. Una vez que tengas Node.js, puedes instalar Cypress con el siguiente comando:
+Para ambientar el proyecto con las dependencias usaremos el comando:
+
+```bash
+npm install
+```
+
+Para crear un proyecto hay que ejecutar los siguientes comandos:
 
 ```bash
 npm install cypress --save-dev
