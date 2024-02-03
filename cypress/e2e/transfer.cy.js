@@ -1,7 +1,6 @@
 import Papa from 'papaparse';
 import { LoginPage } from './pages/LoginPage';
 import { LogoutAction } from './pages/Logout'
-import { OpenNewAccount } from './pages/services/OpenNewAccount'
 import { TransferFunds } from './pages/services/TransferFunds'
 
 describe('Servicios de transferencia', () => {
