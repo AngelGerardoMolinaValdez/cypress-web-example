@@ -54,7 +54,7 @@ La primera vez que ejecutes este comando, Cypress creará una estructura de carp
 ### Estructura de Archivos 📂
 
 - `cypress/fixtures`: Aquí puedes almacenar datos estáticos para tus pruebas.
-- `cypress/integration`: Aquí es donde escribirás tus archivos de prueba.
+- `cypress/e2e`: Aquí es donde escribirás tus archivos de prueba.
 - `cypress/plugins`: Aquí puedes extender y modificar el comportamiento interno de Cypress.
 - `cypress/support`: Aquí puedes escribir comandos personalizados o sobrescribir comandos existentes.
 
