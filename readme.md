@@ -41,7 +41,7 @@ Para ambientar el proyecto con las dependencias usaremos el comando:
 npm install
 ```
 
-## Configuración ⚙️
+## Ejecución ⚙️
 
 Una vez instalado, puedes abrir Cypress con el siguiente comando:
 
