@@ -6,6 +6,16 @@ Cypress es una herramienta de pruebas de front-end que permite escribir pruebas 
 
 Cypress utiliza el motor de pruebas de JavaScript Mocha y el framework de aserciones Chai, ofreciendo una experiencia de prueba integrada y amigable.
 
+## Historia 📜
+
+La historia de Cypress comienza en 2014 en un contexto donde las pruebas de desarrollo eran vistas como una de las partes más desagradables del desarrollo de software. Cypress fue fundado por Brian Mann como respuesta a las limitaciones de herramientas como Selenium. Se centró en ofrecer una solución de pruebas rápida, fácil y confiable directamente en el navegador, lo que supuso una revolución en la forma de construir aplicaciones.
+
+Inicialmente, el desarrollo de Cypress comenzó como una herramienta para el uso interno del equipo de Mann, pero rápidamente se convirtió en algo esencial para una comunidad más amplia de desarrolladores. Después de 18 meses de desarrollo intenso, Cypress lanzó su aplicación y más tarde Cypress Cloud, proporcionando no solo diversas formas de pruebas, sino también métricas y conocimientos accionables.
+
+Cypress hizo su debut comercial en octubre de 2018, superando las proyecciones más optimistas. Empresas de renombre como Disney, NBA, LEGO y Slack figuran en su lista de clientes. Con el tiempo, Cypress se ha consolidado como la principal plataforma de pruebas holísticas, ofreciendo soluciones en tiempo real para pruebas unitarias, de integración y de extremo a extremo, así como herramientas para orquestar y unificar los resultados a través de Cypress Cloud.
+
+Para leer la historia completa de Cypress, visita el sitio web oficial en este enlace: [The Story of Cypress.io](https://www.cypress.io/about-us/our-story).
+
 ## Comparación 📊
 
 | Característica / Herramienta | Cypress     | Selenium    | Puppeteer   | Playwright  | Robot Framework |
@@ -18,16 +28,6 @@ Cypress utiliza el motor de pruebas de JavaScript Mocha y el framework de aserci
 | Soporte para CI/CD          | Sí          | Sí          | Sí          | Sí          | Sí              |
 | Arquitectura                | Ejecución en navegador | WebDriver | Ejecución en navegador | Ejecución en navegador | Framework de Palabras clave |
 | Reporte y Análisis          | Avanzado    | Avanzado    | Básico      | Avanzado    | Avanzado        |
-
-## Historia 📜
-
-La historia de Cypress comienza en 2014 en un contexto donde las pruebas de desarrollo eran vistas como una de las partes más desagradables del desarrollo de software. Cypress fue fundado por Brian Mann como respuesta a las limitaciones de herramientas como Selenium. Se centró en ofrecer una solución de pruebas rápida, fácil y confiable directamente en el navegador, lo que supuso una revolución en la forma de construir aplicaciones.
-
-Inicialmente, el desarrollo de Cypress comenzó como una herramienta para el uso interno del equipo de Mann, pero rápidamente se convirtió en algo esencial para una comunidad más amplia de desarrolladores. Después de 18 meses de desarrollo intenso, Cypress lanzó su aplicación y más tarde Cypress Cloud, proporcionando no solo diversas formas de pruebas, sino también métricas y conocimientos accionables.
-
-Cypress hizo su debut comercial en octubre de 2018, superando las proyecciones más optimistas. Empresas de renombre como Disney, NBA, LEGO y Slack figuran en su lista de clientes. Con el tiempo, Cypress se ha consolidado como la principal plataforma de pruebas holísticas, ofreciendo soluciones en tiempo real para pruebas unitarias, de integración y de extremo a extremo, así como herramientas para orquestar y unificar los resultados a través de Cypress Cloud.
-
-Para leer la historia completa de Cypress, visita el sitio web oficial en este enlace: [The Story of Cypress.io](https://www.cypress.io/about-us/our-story).
 
 ## Requerimientos 🛠️
 
