@@ -41,36 +41,6 @@ Para ambientar el proyecto con las dependencias usaremos el comando:
 npm install
 ```
 
-Para crear un proyecto hay que ejecutar los siguientes comandos:
-
-```bash
-npm install cypress --save-dev
-```
-
-Esto instalará Cypress como una dependencia de desarrollo en tu proyecto.
-
-El siguiente comando instala TypeScript en tu proyecto como una dependencia de desarrollo. TypeScript es un lenguaje de programación que extiende JavaScript agregando tipos estáticos. Se utiliza en el proyecto para las clases en la carpeta ./cypress/e2e/pages/ que forma parte de la metodología POM
-
-```bash
-npm install typescript --save-dev
-```
-
-Una vez instalado typescript, hay crear en la carpeta raiz del proyecto el archivo: *tsconfig.json* y agregar el siguiente bloque:
-
-```json
-{
-    "compilerOptions": {
-        "types": ["cypress"]
-    }
-}
-```
-
-El siguiente comando las definiciones de tipos para Cypress. Es necesario para que TypeScript entienda las estructuras de datos y las funciones específicas de Cypress, lo que evita errores de tipos y mejora la autocompletación y el análisis estático en tu entorno de desarrollo.
-
-```bash
-npm install @types/cypress --save-dev
-```
-
 ## Configuración ⚙️
 
 Una vez instalado, puedes abrir Cypress con el siguiente comando:
