@@ -1,11 +1,10 @@
 import Papa from 'papaparse';
 import { LoginPage } from './pages/LoginPage';
-import { LogoutAction } from './pages/Logout'
-import { OpenNewAccount } from './pages/services/OpenNewAccount'
+import { OpenNewAccountPage } from './pages/OpenNewAccountPage'
+import { TransferFundsPage } from './pages/TransferFundsPage'
 
 describe('Servicios disponibles para una cuenta', () => {
   const loginPage = new LoginPage()
-  const logoutAction = new LogoutAction()
   let testData = []
 
   before(() => {
@@ -22,23 +21,35 @@ describe('Servicios disponibles para una cuenta', () => {
   beforeEach(() => {
     cy.fixture('login.json').then((data) => {
       loginPage.open(data.url);
-      loginPage.inputCredentials(data.username, data.password);
+      loginPage.inputUsername(data.username);
+      loginPage.inputPassword(data.password);
       loginPage.submit();
     });    
   });
 
   afterEach(() => {
-    logoutAction.close()
+    loginPage.close()
   })
 
   it('Abrir una cuenta nueva', () => {
     testData.forEach((rowData) => {
-      const newAccount = new OpenNewAccount();
+      const newAccount = new OpenNewAccountPage();
       newAccount.clickInToOption();
-      newAccount.selectTypeAccount(rowData.typeAccount);
+      newAccount.selectTypeAccount(rowData.type);
       newAccount.selectAccountReference(rowData.accountReference);
-      newAccount.create();
+      newAccount.submit();
       newAccount.getAccountId();
     })
   });
+
+  it('Transferir fondos', () => {
+    const transferFunds = new TransferFundsPage();
+    transferFunds.clickInToOption();
+    transferFunds.inputAmount("1");
+    transferFunds.selectSenderAccount("12345");
+    transferFunds.selectReceiverAccount("12456");
+    transferFunds.submit();
+    transferFunds.validateTransfer();
+  });
+
 })

@@ -1,4 +1,4 @@
-export class OpenNewAccount {
+export class OpenNewAccountPage {
     clickInToOption() {
         cy.get('[href="/parabank/openaccount.htm"]').click()
         cy.get('h1[class="title"]').should("be.visible")
@@ -12,7 +12,7 @@ export class OpenNewAccount {
         cy.get("#fromAccountId").select(account);
     }
 
-    create() {
+    submit() {
         cy.get('[type="submit"]').click();
     }
 

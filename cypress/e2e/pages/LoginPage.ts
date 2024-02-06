@@ -5,13 +5,20 @@ export class LoginPage {
         .should("be.visible");
     }
 
-    inputCredentials(username: string, password: string) {
+    inputUsername(username: string) {
         cy.get('[name="username"]').type(username);
+    }
+
+    inputPassword(password: string) {
         cy.get('[name="password"]').type(password);
     }
 
     submit() {
         cy.get('[type="submit"]').click()
         cy.url().should("include", "overview.htm")
+    }
+
+    close() {
+        cy.get('[href="/parabank/logout.htm"]').click();
     }
 }
