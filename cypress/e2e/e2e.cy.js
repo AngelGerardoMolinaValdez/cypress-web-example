@@ -3,7 +3,7 @@ import { LoginPage } from './pages/LoginPage';
 import { OpenNewAccountPage } from './pages/OpenNewAccountPage'
 import { TransferFundsPage } from './pages/TransferFundsPage'
 
-describe('Servicios disponibles para una cuenta', () => {
+describe('Funciones de trabajo', () => {
   const loginPage = new LoginPage()
   let testData = []
 
