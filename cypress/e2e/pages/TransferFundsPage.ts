@@ -9,11 +9,11 @@ export class TransferFundsPage {
         cy.get("#amount").type(amount);
     }
     
-    selectSenderAccount(accountFrom: string) {
+    selectFromAccount(accountFrom: string) {
         cy.get("#fromAccountId").select(accountFrom);
     }
 
-    selectReceiverAccount(accountTo: string) {
+    selectToAccount(accountTo: string) {
         cy.get("#toAccountId").select(accountTo);
     }
 
