@@ -3,7 +3,7 @@ import { LoginKeywords } from './keywords/LoginKeywords';
 import { OpenNewAccountKeywords } from './keywords/OpenNewAccountKeywords';
 import { TransferFundsKeywords } from './keywords/TransferFundsKeywords';
 
-describe('Funciones de trabajo', () => {
+describe('Pruebas de extremo a extremo', () => {
   const loginKeywords = new LoginKeywords()
   let testData = []
 
