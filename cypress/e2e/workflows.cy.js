@@ -1,10 +1,10 @@
 import Papa from 'papaparse';
-import { LoginPage } from './pages/LoginPage';
-import { OpenNewAccountPage } from './pages/OpenNewAccountPage'
-import { TransferFundsPage } from './pages/TransferFundsPage'
+import { LoginKeywords } from './keywords/LoginKeywords';
+import { OpenNewAccountKeywords } from './keywords/OpenNewAccountKeywords';
+import { TransferFundsKeywords } from './keywords/TransferFundsKeywords';
 
 describe('Escenarios de usuario', () => {
-    const loginPage = new LoginPage();
+    const loginKeywords = new LoginKeywords();
     let testData = [];
     
     before(() => {
@@ -19,35 +19,20 @@ describe('Escenarios de usuario', () => {
     });
     
     beforeEach(() => {
-        cy.fixture('login.json').then((data) => {
-        loginPage.open(data.url);
-        loginPage.inputUsername(data.username);
-        loginPage.inputPassword(data.password);
-        loginPage.submit();
-        });    
+        loginKeywords.login();
     });
     
     afterEach(() => {
-        loginPage.close()
+        loginKeywords.close()
     });
     
     it('Abrir cuenta y transferir fondos', () => {
-        const newAccount = new OpenNewAccountPage();
-        const transferFunds = new TransferFundsPage();
-
         testData.forEach((rowData) => {
-            newAccount.clickInToOption();
-            newAccount.selectTypeAccount(rowData.type);
-            newAccount.selectAccountReference(rowData.accountReference);
-            newAccount.submit();
-            newAccount.getAccountId();
+            const newAccount = new OpenNewAccountKeywords();
+            newAccount.openNewAccount(rowData.type, rowData.accountReference);
 
-            transferFunds.clickInToOption();
-            transferFunds.inputAmount("1");
-            transferFunds.selectSenderAccount("12345");
-            transferFunds.selectReceiverAccount("12456");
-            transferFunds.submit();
-            transferFunds.validateTransfer();
+            const transfer = new TransferFundsKeywords();
+            transfer.transferFunds("1", "12345", "12456");
         })
     });
 })
