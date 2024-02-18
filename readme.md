@@ -43,13 +43,17 @@ npm install
 
 ## Ejecución ⚙️
 
-Una vez instalado, puedes abrir Cypress con el siguiente comando:
+Es posible ejecutar desde la interfaz visual con el comando:
 
-```bash
-npx cypress open
-```
+- `npm run cypress:open`
 
-La primera vez que ejecutes este comando, Cypress creará una estructura de carpetas predeterminada con ejemplos de pruebas para que puedas empezar rápidamente.
+Con este comando se abrirá la interfaz gráfica de Cypress que te permitirá elegir las suites que vas a ejecutar.
+
+También puedes ejecutar el comando:
+
+- `npm run cypress:run`
+
+Este comando te permitirá ejecutar desde la consola de comandos sin abrir la interfaz gráfica.
 
 ### Estructura de Archivos 📂
 
