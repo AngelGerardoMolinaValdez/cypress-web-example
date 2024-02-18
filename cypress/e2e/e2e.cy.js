@@ -23,7 +23,7 @@ describe('Pruebas de extremo a extremo', () => {
   });
 
   afterEach(() => {
-    loginKeywords.close()
+    loginKeywords.logout()
   })
 
   it('Abrir una cuenta nueva', () => {
@@ -35,7 +35,7 @@ describe('Pruebas de extremo a extremo', () => {
 
   it('Transferir fondos', () => {
     const transfer = new TransferFundsKeywords();
-    transfer.transferFunds("1", "12345", "12456");
+    transfer.transferFunds("1", "13344", "22668");
   });
 
 })

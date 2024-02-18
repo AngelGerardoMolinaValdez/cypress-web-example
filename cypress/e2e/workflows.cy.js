@@ -23,7 +23,7 @@ describe('Escenarios de usuario', () => {
     });
     
     afterEach(() => {
-        loginKeywords.close()
+        loginKeywords.logout()
     });
     
     it('Abrir cuenta y transferir fondos', () => {
@@ -32,7 +32,7 @@ describe('Escenarios de usuario', () => {
             newAccount.openNewAccount(rowData.type, rowData.accountReference);
 
             const transfer = new TransferFundsKeywords();
-            transfer.transferFunds("1", "12345", "12456");
+            transfer.transferFunds("1", "13344", "22668");
         })
     });
 })
